@@ -1,0 +1,24 @@
+language: go
+sudo: false
+
+env:
+  - HUGO_VERSION=0.54.0
+  - HUGO_ARCH=Linux-64bit
+
+install: 
+  - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_${HUGO_ARCH}.deb
+  - sudo dpkg -i hugo_${HUGO_VERSION}_${HUGO_ARCH}.deb
+
+script:
+  - hugo
+
+deploy:
+  local-dir: public
+  repo: thingsym/deploy-doc
+  target_branch: gh_pages
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
