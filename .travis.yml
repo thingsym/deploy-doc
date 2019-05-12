@@ -2,8 +2,9 @@ language: go
 sudo: false
 
 env:
-  - HUGO_VERSION=0.54.0
-  - HUGO_ARCH=Linux-64bit
+  global:
+    - HUGO_VERSION=0.54.0
+    - HUGO_ARCH=Linux-64bit
 
 install: 
   - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_${HUGO_ARCH}.deb
