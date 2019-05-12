@@ -16,7 +16,7 @@ script:
 deploy:
   local-dir: public
   repo: thingsym/deploy-doc
-  target_branch: gh_pages
+  target_branch: gh-pages
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
