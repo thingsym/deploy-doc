@@ -15,11 +15,11 @@ script:
 
 deploy:
   local-dir: public
-  repo: thingsym/deploy-doc
+  repo: thingsym/test
   target_branch: gh-pages
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
   on:
-    branch: "/^v?[0-9\\.]+/"
+    branch: master
