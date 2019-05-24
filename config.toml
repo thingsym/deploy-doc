@@ -1,4 +1,4 @@
-baseURL = "https://thingsym.github.io/deploy-doc/"
+baseURL = "https://thingsym.github.io/test/"
 
 languageCode = "en-us"
 DefaultContentLanguage = "en"
