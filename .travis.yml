@@ -25,6 +25,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: scp -P ${SSH_PORT} -pr $TRAVIS_BUILD_DIR/public/ ${SSH_USER}@${SSH_HOST}:${SSH_DIRECTORY}
+  script: scp -P ${SSH_PORT} -pr $TRAVIS_BUILD_DIR/public/* ${SSH_USER}@${SSH_HOST}:${SSH_DIRECTORY}
   on:
     branch: master
