@@ -28,3 +28,5 @@ deploy:
   script: scp -P ${SSH_PORT} -pr $TRAVIS_BUILD_DIR/public/* ${SSH_USER}@${SSH_HOST}:${SSH_DIRECTORY}
   on:
     branch: master
+  tags: true
+  condition: $TRAVIS_TAG =~ /^v\d+\.\d+(\.\d+)?(-\S*)?$/
