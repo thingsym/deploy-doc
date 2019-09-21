@@ -26,5 +26,6 @@ deploy:
   provider: script
   skip_cleanup: true
   script: scp -P ${SSH_PORT} -pr $TRAVIS_BUILD_DIR/public/* ${SSH_USER}@${SSH_HOST}:${SSH_DIRECTORY}
+  all_branches: true
   tags: true
   condition: $TRAVIS_TAG =~ /^v\d+\.\d+(\.\d+)?(-\S*)?$/
