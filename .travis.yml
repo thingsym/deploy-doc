@@ -5,7 +5,7 @@ language: go
 
 env:
   global:
-    - HUGO_VERSION=0.54.0
+    - HUGO_VERSION=0.62.2
     - HUGO_ARCH=Linux-64bit
 
 install:
@@ -15,17 +15,14 @@ install:
 script:
   - hugo
 
-before_deploy:
-  - openssl aes-256-cbc -K $encrypted_cdd315fe7939_key -iv $encrypted_cdd315fe7939_iv -in travis_rsa.enc -out /tmp/travis_rsa -d
-  - eval "$(ssh-agent -s)"
-  - chmod 600 /tmp/travis_rsa
-  - ssh-add /tmp/travis_rsa
-  - echo -e "Host ${SSH_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-
 deploy:
-  provider: script
+  local-dir: public
+  repo: thingsym/deploy-doc
+  target_branch: gh-pages
+  provider: pages
   skip_cleanup: true
-  script: scp -P ${SSH_PORT} -pr $TRAVIS_BUILD_DIR/public/* ${SSH_USER}@${SSH_HOST}:${SSH_DIRECTORY}
+  github_token: $GITHUB_TOKEN
+  keep_history: true
   on:
     branch: master
     tags: true
