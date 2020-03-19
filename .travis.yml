@@ -16,7 +16,7 @@ script:
   - hugo
 
 deploy:
-  local-dir: public
+  local_dir: public
   repo: thingsym/deploy-doc
   target_branch: gh-pages
   provider: pages
