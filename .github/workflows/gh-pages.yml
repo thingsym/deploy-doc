@@ -6,7 +6,7 @@ on:
       - 'v*.*.*'
 
 jobs:
-  build-deploy:
+  publish:
     runs-on: ubuntu-18.04
 
     steps:
@@ -21,13 +21,13 @@ jobs:
           hugo-version: '0.79.0'
           extended: true
 
-      - name: Build Website
+      - name: Build website
         run: hugo --minify
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
+          publish_branch: gh-pages
           publish_dir: ./public
           commit_message: 'deploy to GitHub Pages via GitHub Actions'
