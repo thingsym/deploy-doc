@@ -2,16 +2,12 @@ name: Publish to Github Pages
 
 on:
   push:
-    push:
-      tags:
-        - 'v*.*.*'
+    tags:
+      - 'v*.*.*'
 
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
-
-    env:
-      HUGO_VERSION: '0.75.1'
 
     steps:
       - uses: actions/checkout@v2
